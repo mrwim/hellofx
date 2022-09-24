@@ -21,20 +21,18 @@ public class LoginController {
     }
 
     protected boolean isPasswordValid(String password) {
-        boolean hasLetters = false;
-        boolean hasDigits = false;
-        boolean hasSpecial = false;
+        byte values = 0b000;
 
         for (char c : password.toCharArray()) {
             if (Character.isDigit(c)) {
-                hasDigits = true;
+                values = (byte) (values | 0b100);
             } else if (Character.isLetter(c)) {
-                hasLetters = true;
+                values = (byte) (values | 0b010);
             } else {
-                hasSpecial = true;
+                values = (byte) (values | 0b001);
             }
         }
-        return password.length() > 7 && (hasLetters && hasDigits && hasSpecial);
+        return values == 7;
     }
 
 }
