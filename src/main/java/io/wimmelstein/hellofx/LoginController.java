@@ -4,11 +4,20 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginController {
 
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     @FXML
     private Button loginButton;
+
+    @FXML
+    private PasswordField passwordField;
 
     @FXML
     public void onPasswordTextChange(StringProperty observable, String oldValue, String newValue) {
@@ -17,7 +26,7 @@ public class LoginController {
 
     @FXML
     public void onLoginButtonClick(ActionEvent event) {
-        System.out.println("Bladiebla");
+        log.log(Level.INFO, "You have clicked on event {0}", event);
     }
 
     protected boolean isPasswordValid(String password) {
