@@ -26,7 +26,7 @@ public class LoginController {
 
     @FXML
     public void onLoginButtonClick(ActionEvent event) {
-        log.log(Level.INFO, "You have clicked on event {0}", event);
+        log.log(Level.INFO, "You have logged in with password {0}", passwordField.getText());
     }
 
     protected boolean isPasswordValid(String password) {
