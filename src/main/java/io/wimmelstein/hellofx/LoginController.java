@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 
 public class LoginController {
 
+    private static final int SET_DIGIT_BIT = 0b100;
+    private static final int SET_LETTER_BIT = 0b010;
+    private static final int SET_SPECIAL_BIT = 0b001;
+
     @FXML
     private Button loginButton;
 
@@ -25,11 +29,11 @@ public class LoginController {
 
         for (char c : password.toCharArray()) {
             if (Character.isDigit(c)) {
-                values = (byte) (values | 0b100);
+                values = (byte) (values | SET_DIGIT_BIT);
             } else if (Character.isLetter(c)) {
-                values = (byte) (values | 0b010);
+                values = (byte) (values | SET_LETTER_BIT);
             } else {
-                values = (byte) (values | 0b001);
+                values = (byte) (values | SET_SPECIAL_BIT);
             }
         }
         return values == 7;
