@@ -5,4 +5,6 @@ module io.wimmelstein.hellofx {
 
     opens io.wimmelstein.hellofx to javafx.fxml;
     exports io.wimmelstein.hellofx;
+    exports io.wimmelstein.hellofx.controller;
+    opens io.wimmelstein.hellofx.controller to javafx.fxml;
 }

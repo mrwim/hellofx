@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      prefHeight="400.0"
+      prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea">
+    <padding>
+        <Insets topRightBottomLeft="10"/>
+    </padding>
+
+    <TableView>
+    </TableView>
+    <HBox spacing="8" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="10" top="10"/>
+        </padding>
+
+        <TextField fx:id="firstName" promptText="First name"/>
+        <TextField fx:id="lastName" promptText="Last Name"/>
+        <DatePicker fx:id="dob" promptText="Date of birth"/>
+        <Button fx:id="add" minWidth="-Infinity">Add</Button>
+        <Button fx:id="delete" minWidth="-Infinity">Delete</Button>
+
+    </HBox>
+</VBox>

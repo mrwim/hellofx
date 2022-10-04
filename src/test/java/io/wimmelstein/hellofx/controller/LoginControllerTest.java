@@ -1,4 +1,4 @@
-package io.wimmelstein.hellofx;
+package io.wimmelstein.hellofx.controller;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

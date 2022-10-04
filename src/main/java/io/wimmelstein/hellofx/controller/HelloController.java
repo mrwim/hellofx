@@ -1,4 +1,4 @@
-package io.wimmelstein.hellofx;
+package io.wimmelstein.hellofx.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
