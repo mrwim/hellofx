@@ -4,6 +4,8 @@ module io.wimmelstein.hellofx {
     requires java.logging;
 
     opens io.wimmelstein.hellofx to javafx.fxml;
+    exports io.wimmelstein.hellofx.model;
+    exports io.wimmelstein.hellofx.data;
     exports io.wimmelstein.hellofx;
     exports io.wimmelstein.hellofx.controller;
     opens io.wimmelstein.hellofx.controller to javafx.fxml;

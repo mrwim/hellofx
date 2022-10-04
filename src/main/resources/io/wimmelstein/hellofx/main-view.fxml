@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns:fx="http://javafx.com/fxml/1"
@@ -12,7 +13,25 @@
         <Insets topRightBottomLeft="10"/>
     </padding>
 
-    <TableView>
+    <TableView fx:id="personTableView">
+        <columns>
+            <TableColumn text="First name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Last name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="dateOfBirth">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dateOfBirth"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+
     </TableView>
     <HBox spacing="8" VBox.vgrow="NEVER">
         <padding>
