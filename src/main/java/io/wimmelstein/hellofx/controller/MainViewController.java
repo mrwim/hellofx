@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -38,6 +39,7 @@ public class MainViewController implements Initializable {
 
         people = FXCollections.observableArrayList(db.getPeople());
         personTableView.setItems(people);
+        personTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public void onAddButtonClick() {
@@ -48,5 +50,10 @@ public class MainViewController implements Initializable {
         firstName.clear();
         lastName.clear();
         dob.getEditor().clear();
+    }
+
+    public void onDeleteButtonClick() {
+        ObservableList<Person> peopleToDelete = personTableView.getSelectionModel().getSelectedItems();
+        people.removeAll(peopleToDelete);
     }
 }
