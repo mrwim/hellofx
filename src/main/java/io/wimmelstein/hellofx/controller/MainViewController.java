@@ -19,7 +19,6 @@ public class MainViewController implements Initializable {
 
     private Database db;
 
-    private Person person;
     private ObservableList<Person> people;
     @FXML
     private TableView<Person> personTableView;
@@ -47,7 +46,7 @@ public class MainViewController implements Initializable {
 
     public void onAddButtonClick(ActionEvent event) {
         try {
-            person = new Person(firstName.getText(), lastName.getText(),
+            Person person = new Person(firstName.getText(), lastName.getText(),
                     dob.getValue() == null
                             ? LocalDate.parse(dob.getEditor().getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                             : dob.getValue());
