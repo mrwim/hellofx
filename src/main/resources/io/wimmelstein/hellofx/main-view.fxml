@@ -45,4 +45,5 @@
         <Button fx:id="delete" minWidth="-Infinity" onAction="#onDeleteButtonClick">Delete</Button>
 
     </HBox>
+    <Label fx:id="message" style="-fx-text-fill: red"/>
 </VBox>

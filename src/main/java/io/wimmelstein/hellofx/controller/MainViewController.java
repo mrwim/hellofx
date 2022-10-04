@@ -4,21 +4,22 @@ import io.wimmelstein.hellofx.data.Database;
 import io.wimmelstein.hellofx.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
 
     private Database db;
+
+    private Person person;
     private ObservableList<Person> people;
     @FXML
     private TableView<Person> personTableView;
@@ -29,6 +30,8 @@ public class MainViewController implements Initializable {
     private TextField lastName;
     @FXML
     private DatePicker dob;
+    @FXML
+    private Label message;
 
     public MainViewController() {
         this.db = new Database();
@@ -42,14 +45,26 @@ public class MainViewController implements Initializable {
         personTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-    public void onAddButtonClick() {
-        Person person = new Person(firstName.getText(), lastName.getText(), dob.getValue() == null
-                ? LocalDate.parse(dob.getEditor().getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                : dob.getValue());
-        people.add(person);
+    public void onAddButtonClick(ActionEvent event) {
+        try {
+            person = new Person(firstName.getText(), lastName.getText(),
+                    dob.getValue() == null
+                            ? LocalDate.parse(dob.getEditor().getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            : dob.getValue());
+            people.add(person);
+            clearFields();
+        } catch (DateTimeParseException dtpe) {
+            message.setText("Error parsing date " + dob.getEditor().getText());
+            event.consume();
+        }
+
+    }
+
+    private void clearFields() {
         firstName.clear();
         lastName.clear();
         dob.getEditor().clear();
+        message.setText("");
     }
 
     public void onDeleteButtonClick() {
