@@ -41,7 +41,7 @@
         <TextField fx:id="firstName" promptText="First name"/>
         <TextField fx:id="lastName" promptText="Last Name"/>
         <DatePicker fx:id="dob" promptText="Date of birth"/>
-        <Button fx:id="add" minWidth="-Infinity">Add</Button>
+        <Button fx:id="add" minWidth="-Infinity" onAction="#onAddButtonClick">Add</Button>
         <Button fx:id="delete" minWidth="-Infinity">Delete</Button>
 
     </HBox>
