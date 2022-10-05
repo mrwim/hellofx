@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -62,6 +63,7 @@ public class LoginController {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(name));
             fxmlLoader.setController(controller);
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            scene.getStylesheets().add(Objects.requireNonNull(HelloApplication.class.getResource("css/style.css")).toExternalForm());
             Stage window = (Stage) vBox.getScene().getWindow();
             window.setTitle(name.replace(".fxml", ""));
             window.setScene(scene);
