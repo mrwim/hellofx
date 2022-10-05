@@ -59,15 +59,15 @@ public class MainViewController implements Initializable {
 
     }
 
+    public void onDeleteButtonClick() {
+        ObservableList<Person> peopleToDelete = personTableView.getSelectionModel().getSelectedItems();
+        people.removeAll(peopleToDelete);
+    }
+
     private void clearFields() {
         firstName.clear();
         lastName.clear();
         dob.getEditor().clear();
         message.setText("");
-    }
-
-    public void onDeleteButtonClick() {
-        ObservableList<Person> peopleToDelete = personTableView.getSelectionModel().getSelectedItems();
-        people.removeAll(peopleToDelete);
     }
 }
