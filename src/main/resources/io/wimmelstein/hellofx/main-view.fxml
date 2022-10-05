@@ -25,7 +25,7 @@
                     <PropertyValueFactory property="lastName"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="dateOfBirth">
+            <TableColumn text="Date of birth">
                 <cellValueFactory>
                     <PropertyValueFactory property="dateOfBirth"/>
                 </cellValueFactory>
