@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Database {
 
-    private List<Person> people = new ArrayList<>();
+    private final List<Person> people;
 
     public Database() {
-
+        people = new ArrayList<>();
         people.addAll(
                 List.of(
                         new Person("Abe", "Lincoln", LocalDate.of(1809, 2, 12)),
