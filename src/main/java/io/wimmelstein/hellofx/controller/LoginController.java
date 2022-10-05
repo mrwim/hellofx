@@ -35,7 +35,7 @@ public class LoginController {
     }
 
     @FXML
-    public void onLoginButtonClick(ActionEvent event) throws IOException {
+    public void onLoginButtonClick(ActionEvent event) {
         log.log(Level.INFO, "You have logged in with password {0}", passwordField.getText());
         loadScene("main-view.fxml", new MainViewController());
 
